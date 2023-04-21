@@ -22,6 +22,11 @@ public class BikeServicesImpl implements BikeServices {
         return entityToResponse(existing);
     }
 
+    @Override
+    public void deleteBike(int id) {
+        bikeRepository.deleteById(id);
+    }
+
 
     //this is used to add the book in the database and return the BikeResponse
     @Override

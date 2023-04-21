@@ -24,4 +24,8 @@ public class MyController {
         return bikeServices.getBikeById(id);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable int id){
+        bikeServices.deleteBike(id);
+    }
 }
