@@ -16,6 +16,12 @@ public class BikeServicesImpl implements BikeServices {
         this.bikeRepository = bikeRepository;
     }
 
+    @Override
+    public BikeResponse getBikeById(int id) {
+        Bike existing = bikeRepository.findById(id).orElseThrow(()-> new RuntimeException("book not found"));
+        return entityToResponse(existing);
+    }
+
 
     //this is used to add the book in the database and return the BikeResponse
     @Override
@@ -43,4 +49,6 @@ public class BikeServicesImpl implements BikeServices {
                 .price(bike.getPrice())
                 .build();
     }
+
+
 }
