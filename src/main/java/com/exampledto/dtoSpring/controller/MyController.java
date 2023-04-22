@@ -18,7 +18,7 @@ public class MyController {
 
     @Value("${welcome.message}")
     public String welcomemessage;
-    
+
     @GetMapping("/")
     public String welcomeMessage(){
         return welcomemessage;
