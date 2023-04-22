@@ -16,6 +16,7 @@ public class BikeServicesImpl implements BikeServices {
         this.bikeRepository = bikeRepository;
     }
 
+    //get bike by id it will return BikeResponse
     @Override
     public BikeResponse getBikeById(int id) {
         Bike existing = bikeRepository.findById(id).orElseThrow(()-> new RuntimeException("book not found"));

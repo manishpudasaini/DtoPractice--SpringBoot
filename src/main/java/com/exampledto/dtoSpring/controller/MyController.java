@@ -3,6 +3,7 @@ package com.exampledto.dtoSpring.controller;
 import com.exampledto.dtoSpring.dto.BikeRequest;
 import com.exampledto.dtoSpring.dto.BikeResponse;
 import com.exampledto.dtoSpring.services.BikeServices;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,7 +16,7 @@ public class MyController {
     }
 
     @PostMapping("/add")
-    public BikeResponse addBike(@RequestBody BikeRequest bikeRequest){
+    public BikeResponse addBike(@Valid @RequestBody BikeRequest bikeRequest){
         return bikeServices.addBike(bikeRequest);
     }
 
