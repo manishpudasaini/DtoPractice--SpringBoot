@@ -4,6 +4,7 @@ import com.exampledto.dtoSpring.dto.BikeRequest;
 import com.exampledto.dtoSpring.dto.BikeResponse;
 import com.exampledto.dtoSpring.services.BikeServices;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,6 +14,14 @@ public class MyController {
 
     public MyController(BikeServices bikeServices) {
         this.bikeServices = bikeServices;
+    }
+
+    @Value("${welcome.message}")
+    public String welcomemessage;
+    
+    @GetMapping("/")
+    public String welcomeMessage(){
+        return welcomemessage;
     }
 
     @PostMapping("/add")
